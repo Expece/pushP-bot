@@ -8,10 +8,27 @@ from dispatcher import dp
 async def print_start(message: types.Message):
     await message.answer("Hello! Here you can save your passwords.\n"
                          "Commands:\n"
-                         "/push [service_name] : [password]\n")
+                         "/push [service_name] : [password]\n"
+                         "/pmake\n")
 
 
 @dp.message_handler(commands=['push'])
 async def print_start(message: types.Message):
-    mess = utils.push_password([s.strip() for s in message.text[5:].split(":")])
-    await message.answer(mess)
+    ans = "Success"
+    formated_message = utils.parse_message(message.text.strip(), "/push")
+    print(formated_message)
+    if formated_message:
+        print(formated_message)
+        service, password = formated_message
+        utils.push_password(service, password, "passwords")
+    else : ans = "Error"
+
+    await message.answer(ans)
+
+
+@dp.message_handler(commands=['pmake'])
+async def print_start(message: types.Message):
+    random_string = utils.generate_random_string()
+    password = utils.encrypt_string(random_string)
+    password = utils.format_password(password)
+    await message.answer(password)
