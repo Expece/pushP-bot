@@ -16,9 +16,7 @@ async def print_start(message: types.Message):
 async def print_start(message: types.Message):
     ans = "Success"
     formated_message = utils.parse_message(message.text.strip(), "/push")
-    print(formated_message)
     if formated_message:
-        print(formated_message)
         service, password = formated_message
         utils.push_password(service, password, "passwords")
     else : ans = "Error"
@@ -32,3 +30,8 @@ async def print_start(message: types.Message):
     password = utils.encrypt_string(random_string)
     password = utils.format_password(password)
     await message.answer(password)
+
+@dp.message_handler(commands=['pget'])
+async def print_start(message: types.Message):
+    output = utils.get_passwords("passwords")
+    await message.answer(output)
