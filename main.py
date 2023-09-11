@@ -1,7 +1,6 @@
 from aiogram import executor
-from dispatcher import dp
-import handlers as handlers
-
+from src.dispatcher import dp
+import src.handlers as handlers
 
 
 if __name__ == '__main__':
