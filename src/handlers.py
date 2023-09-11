@@ -1,6 +1,6 @@
 from aiogram import types
 
-import utils
+import utils as utils
 from dispatcher import dp
 
 
@@ -30,6 +30,7 @@ async def print_start(message: types.Message):
     password = utils.encrypt_string(random_string)
     password = utils.format_password(password)
     await message.answer(password)
+
 
 @dp.message_handler(commands=['pget'])
 async def print_start(message: types.Message):

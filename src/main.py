@@ -1,6 +1,6 @@
 from aiogram import executor
 from dispatcher import dp
-import handlers
+import handlers as handlers
 
 
 

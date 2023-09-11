@@ -4,7 +4,6 @@ import random
 import string
 
 
-
 def parse_message(text: str, command: str) -> any:
     if command == "/push":
         formated_message = [s.strip() for s in text[len(command):].strip().split(':')]
@@ -17,7 +16,7 @@ def parse_message(text: str, command: str) -> any:
 
 
 def push_password(service: str, password: str, filename: str):
-    with open(f"data/{filename}.json", "r+") as f:
+    with open(f"../data/{filename}.json", "r+") as f:
         fdata = json.load(f)
         fdata["passwords"].update({service : password})
         f.seek(0)

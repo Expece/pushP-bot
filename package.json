@@ -1,0 +1,8 @@
+{
+    "scripts": {
+      "start": "python src/main.py"
+    },
+    "dependencies": {
+      "aiogram": "^2.25.1"
+    }
+  }
