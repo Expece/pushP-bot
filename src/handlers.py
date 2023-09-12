@@ -1,7 +1,7 @@
 from aiogram import types
 
-import utils as utils
-from dispatcher import dp
+import src.utils as utils
+from src.dispatcher import dp
 
 
 @dp.message_handler(commands=['start'])
